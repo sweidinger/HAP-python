@@ -243,6 +243,8 @@ class Accessory:
             print('Scan this code with your HomeKit app on your iOS device:',
                   flush=True)
             print(QRCode(xhm_uri).terminal(quiet_zone=2), flush=True)
+            qrcode = pyqrcode.create(xhm_uri)
+            qrcode.png('qrcode.png', scale=4,  background=(0xff, 0xff, 0xff, 0x88), quiet_zone=2)
             print('Or enter this code in your HomeKit app on your iOS device: '
                   '{}'.format(pincode))
         else:
